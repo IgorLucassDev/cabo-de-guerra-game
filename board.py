@@ -1,7 +1,32 @@
 import os
+from audio import Audio
+import pygame
+
+winningSound = './sounds/win.mp3'
+background_music = './sounds/music/background.mp3'
+
+Audio.playMusic(background_music)
+
 
 class Board:
     def draw(score):
+        if(score == 0):
+            os.system('cls')
+            print(f"""
+               ______________
+              |CABO DE GUERRA|
+--------------------------------------------
+ Player1                             Player2             
+
+                      |
+                      |
+          ############ ############
+                      |
+                      |
+
+                    
+--------------------------------------------
+    """)
         if(score == -1):
             os.system('cls')
             print(f"""
@@ -189,14 +214,9 @@ class Board:
                   
 --------------------------------------------
     """)
+            Audio.playAudio(winningSound)
             
-
-
-
-
-
-
-
+                
 
             
         if(score == 1):
@@ -386,6 +406,8 @@ class Board:
                   
 --------------------------------------------
     """)
+            Audio.playAudio(winningSound)
+            
             
            
             
